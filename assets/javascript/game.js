@@ -7,6 +7,8 @@ var crystalValue3 = Math.floor(Math.random() * 12) + 1;
 var crystalValue4 = Math.floor(Math.random() * 12) + 1;
 
 
+gameSet();
+
 function getRandomNumber() {
     min = Math.ceil(19);
     max = Math.floor(121);
@@ -16,7 +18,7 @@ function getRandomNumber() {
 //console.log(randomNum);
 
 function gameSet() {
-    $("#magic-number").append(randomNum);
+    $("#magic-number").append(magicNum);
     getRandomNumber();
     magicNum = getRandomNumber();
 }
