@@ -32,7 +32,7 @@ function gameSet() {
 // this function will append button presses to guessed letter on button click
 function valueAdd() {
     $(".btn-group").click(function () {
-        addedNum = this.attr(val());
+        addedNum = $(this).attr($(this).val());
         $("#guessed-letters").append(addedNum);
     }
     )
