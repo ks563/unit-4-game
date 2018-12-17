@@ -5,10 +5,10 @@ var crystalValue1 = Math.floor(Math.random() * 12) + 1;
 var crystalValue2 = Math.floor(Math.random() * 12) + 1;
 var crystalValue3 = Math.floor(Math.random() * 12) + 1;
 var crystalValue4 = Math.floor(Math.random() * 12) + 1;
-var addedNum; //this will hold the value of pressed button then be added too so we can append it to the div
+// var addedNum; //this will hold the value of pressed button then be added too so we can append it to the div
 
 gameSet();
-buttonAdd();
+valueAdd();
 
 function getRandomNumber() {
     min = Math.ceil(19);
@@ -30,8 +30,26 @@ function gameSet() {
 }
 
 // this function will append button presses to guessed letter on button click
-function buttonAdd() {
+function valueAdd() {
     $("button").click(function() {
-        $("guessednumber").append()
+        $("#guessed-number").append(this.button.val());
     }
-    )};
+    )
+};
+
+//allows for button values to be added
+function addition() {
+    if()
+}
+
+function checkGame() {
+    if (addedNum === magicNum) {
+        wins++;
+    }
+    else {
+        (addedNum > magicNum){
+        losses++
+        }
+    }
+    gameSet();
+}
