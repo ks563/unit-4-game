@@ -15,7 +15,18 @@ body, html {
     background: none;
 }
 
-/* .card.card {
+.card-header {
+    background: white;
+}
+
+.card.card {
     background: none;
-} */
+    display: inline;
+} 
+
+/* for some reason only having the double styling in the css and in the html on the buttons made the appear normally */
+.btn {
+    height: 20%;
+    width: 20%;
+}
 
