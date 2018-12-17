@@ -31,25 +31,26 @@ function gameSet() {
 
 // this function will append button presses to guessed letter on button click
 function valueAdd() {
-    $("button").click(function() {
-        $("#guessed-number").append(this.button.val());
+    $(".button").click(function() {
+        addedNum = this.val();
+        $("#guessed-letters").append(addedNum);
     }
-    )
-};
+    )};
 
 //allows for button values to be added
 function addition() {
-    if()
+    
 }
 
 function checkGame() {
     if (addedNum === magicNum) {
         wins++;
     }
-    else {
-        (addedNum > magicNum){
-        losses++
-        }
+        if(addedNum > magicNum) {
+            losses++;
     }
+   else {
+        //continue game
+   } 
     gameSet();
 }
