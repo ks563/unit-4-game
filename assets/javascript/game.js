@@ -5,9 +5,10 @@ var crystalValue1 = Math.floor(Math.random() * 12) + 1;
 var crystalValue2 = Math.floor(Math.random() * 12) + 1;
 var crystalValue3 = Math.floor(Math.random() * 12) + 1;
 var crystalValue4 = Math.floor(Math.random() * 12) + 1;
-
+var addedNum;
 
 gameSet();
+buttonAdd();
 
 function getRandomNumber() {
     min = Math.ceil(19);
@@ -17,9 +18,20 @@ function getRandomNumber() {
 
 //console.log(randomNum);
 
+//function sets game and assigns value to buttons and sets randon number
 function gameSet() {
-    $("#magic-number").append(magicNum);
     getRandomNumber();
     magicNum = getRandomNumber();
+    $("#magic-number").append(magicNum);
+    $("#crystal-1").val(crystalValue1);
+    $("#crystal-2").val(crystalValue2);
+    $("#crystal-3").val(crystalValue3);
+    $("#crystal-4").val(crystalValue4);
 }
 
+// this function will append button presses to guessed letter on button click
+function buttonAdd() {
+    $("button").click(function() {
+        guessedNumber.append(button.val)
+    }
+    )};

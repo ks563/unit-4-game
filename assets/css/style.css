@@ -1,0 +1,21 @@
+body, html {
+    height: 100%;
+    font-family: 'Poiret One', cursive;
+  }  
+
+.bg{
+    background-image: url(../images/qbkls.png);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron {
+    background: none;
+}
+
+/* .card.card {
+    background: none;
+} */
+
