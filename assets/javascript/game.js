@@ -23,25 +23,28 @@ function gameSet() {
     getRandomNumber();
     magicNum = getRandomNumber();
     $("#magic-number").append(magicNum);
-    $("#crystal-1").val(crystalValue1);
-    $("#crystal-2").val(crystalValue2);
-    $("#crystal-3").val(crystalValue3);
-    $("#crystal-4").val(crystalValue4);
+    $("#crystal-1").attr("val", crystalValue1);
+    $("#crystal-2").attr("val", crystalValue2);
+    $("#crystal-3").attr("val", crystalValue3);
+    $("#crystal-4").attr("val", crystalValue4);
 }
 
 // this function will append button presses to guessed letter on button click
 function valueAdd() {
     $(".btn-group").click(function () {
-        addedNum = $(this).attr($(this).val());
-        $("#guessed-letters").append(addedNum);
+        addedNum = $(".btn-group").attr($(this).val());
+        $("#guessed-number").append(addedNum);
     }
     )
 };
 console.log(addedNum);
 
-//allows for button values to be added
-function addition() {
-    
+//allows for button values to be added when multiple buttons are pressed 
+function buttonAdd() {
+    $("#crystal-1").click(+ addedNum);
+    $("#crystal-2").click(+ addedNum);
+    $("#crystal-3").click(+ addedNum);
+    $("#crystal-4").click(+ addedNum);
 }
 
 function checkGame() {
