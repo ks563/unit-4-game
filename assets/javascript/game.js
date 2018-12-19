@@ -1,13 +1,8 @@
 var magicNum; //will store value of random number
 // var minNum = 19; //lower bound of random number
 // var maxNum = 121; // upper bound of random number
-var crystalValue1 = Math.floor(Math.random() * 13) + 1;
-var crystalValue2 = Math.floor(Math.random() * 13) + 1;
-var crystalValue3 = Math.floor(Math.random() * 13) + 1;
-var crystalValue4 = Math.floor(Math.random() * 13) + 1;
-var addedNum; //this will hold the value of pressed button then be added too so we can append it to the div
-
-gameSet();
+var crystals;
+var addedNum =0; //this will hold the value of pressed button then be added too so we can append it to the div
 
 function getRandomNumber() {
     magicNum = Math.floor(Math.random() * 121) + 19;
@@ -18,15 +13,36 @@ function getRandomNumber() {
 //function sets game and assigns value to buttons and sets randon number
 function gameSet() {
     getRandomNumber();
-    $("#magic-number").append(magicNum);
-    $("#crystal-1").attr(crystalValue1); // $("#crystal-1)").val(crystalValue1));
-    $("#crystal-2").attr("val", crystalValue2);
-    $("#crystal-3").attr("val", crystalValue3);
-    $("#crystal-4").attr("val", crystalValue4);
+    crystals = randomNumberCrystals();
+    // console.log(crystalValue1);
+}
+
+function randomNumberCrystals() {
+   return {
+       crystal1: {
+           points: Math.floor(Math.random() * 13) + 1,
+           image: "./images/crystal1.png"
+    
+        },
+        crystal2: {
+            points: Math.floor(Math.random() * 13) + 1,
+            image: "./images/crystal2.png"
+        },
+        crystal3: {
+        points: Math.floor(Math.random() * 13) + 1,
+        image: "./images/crystal3.png"
+    
+        },
+    crystal4: {
+        points: Math.floor(Math.random() * 13) + 1,
+        image: "./images/crystal4.png"
+        }
+};
+    
 }
 
 // this function will append button presses to guessed letter on button click
-$(".btn-group").click(function () {
+$(".btn-group").click(function (event) {
     addedNum += $(".btn-group").attr($(this).val());
     $("#guessed-number").text(addedNum);
 }
@@ -34,25 +50,34 @@ $(".btn-group").click(function () {
 
 // console.log(addedNum);
 
-//allows for button values to be added when multiple buttons are pressed 
-// need to store value each time a button is clicked and value is adjusted
-function buttonAdd() {
+
+function renderCrystals() {
+    for (var crystal in crystals) {
+        var crystalButton = $("<button class='crystals-button' data-name='" + crystal + "'>");
+        var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[crystal].image);
+        crystalButton.append(crystalImg);
+        $(".btn-group").append(crystalButton);
+    }
     
-    // $("#crystal-1").click(+ addedNum);
-    // $("#crystal-2").click(+ addedNum);
-    // $("#crystal-3").click(+ addedNum);
-    // $("#crystal-4").click(+ addedNum);
 }
 
 function checkGame() {
     if (addedNum === magicNum) {
         wins++;
+        gameSet();
     }
-        if(addedNum > magicNum) {
-            losses++;
+}
+    else if{
+        (addedNum > magicNum) {
+        losses++;
     }
-   else {
-        //continue game
-   } 
+}
+    else {
+        continue;
+    }
+ 
     gameSet();
 }
+
+gameSet();
+renderCrystals();
