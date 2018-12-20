@@ -21,45 +21,45 @@ function randomNumberCrystals() {
    return {
        crystal1: {
            points: Math.floor(Math.random() * 13) + 1,
-           image: "./images/crystal1.png"
+           image: "/images/crystal1.png"
     
         },
         crystal2: {
             points: Math.floor(Math.random() * 13) + 1,
-            image: "./images/crystal2.png"
+            image: "/images/crystal2.png"
         },
         crystal3: {
         points: Math.floor(Math.random() * 13) + 1,
-        image: "./images/crystal3.png"
+        image: "/images/crystal3.png"
     
         },
     crystal4: {
         points: Math.floor(Math.random() * 13) + 1,
-        image: "./images/crystal4.png"
+        image: "/images/crystal4.png"
         }
-};
-    
+};   
 }
 
-// this function will append button presses to guessed letter on button click
+function createCrystals() {
+    for (var crystal in crystals) {
+        var crystalButton = $("<button class='crystals-button' data-name='" + crystal + "'>");
+        var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[crystal].image);
+        crystalButton.append(crystalImg);
+        $(".btn-group").append(crystalButton);
+    }   
+}
+
+// this function will append button presses to guessed letter on button click - but was retuning NaN
 $(".btn-group").click(function (event) {
-    addedNum += $(".btn-group").attr($(this).val());
-    $("#guessed-number").text(addedNum);
+    addedNum += $(".btn-group").attr($(this).data());
+    $("#guessed-number").html(addedNum);
 }
 )
 
 // console.log(addedNum);
 
 
-function renderCrystals() {
-    for (var crystal in crystals) {
-        var crystalButton = $("<button class='crystals-button' data-name='" + crystal + "'>");
-        var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[crystal].image);
-        crystalButton.append(crystalImg);
-        $(".btn-group").append(crystalButton);
-    }
-    
-}
+
 
 function checkGame() {
     if (addedNum === magicNum) {
@@ -68,11 +68,10 @@ function checkGame() {
     } else if(addedNum > magicNum) {
         losses++;
         gameSet();
-    } else {
-        continue;
-    }
+    } 
 }
 
 
 gameSet();
-renderCrystals();
+createCrystals();
+checkGame();
