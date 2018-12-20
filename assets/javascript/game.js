@@ -21,21 +21,21 @@ function randomNumberCrystals() {
    return {
        crystal1: {
            points: Math.floor(Math.random() * 13) + 1,
-           image: "/images/crystal1.png"
+           image: "./assets/images/crystal1.png"
     
         },
         crystal2: {
             points: Math.floor(Math.random() * 13) + 1,
-            image: "/images/crystal2.png"
+            image: "./assets/images/crystal2.png"
         },
         crystal3: {
         points: Math.floor(Math.random() * 13) + 1,
-        image: "/images/crystal3.png"
+        image: "./assets/images/crystal3.png"
     
         },
     crystal4: {
         points: Math.floor(Math.random() * 13) + 1,
-        image: "/images/crystal4.png"
+        image: "./assets/images/crystal4.png"
         }
 };   
 }
