@@ -50,12 +50,12 @@ function createCrystals() {
     }
 }
 
-// this function will append button presses to guessed letter on button click - but is retuning NaN
+// this function will append button presses to guessed letter on button click - error is saying attr is undefined
 function buttonMath(crystal) {
     $(".btn-group").click(function (event) {
-        addedNum += $(crystals)[crystal.attr("data-name")].points;
+        addedNum += crystals[crystal.attr("data-name")].points;
         $("#guessed-number").append(addedNum);
-        //console.log(addedNum);
+        console.log(addedNum);
     }
     )
 }
@@ -72,5 +72,5 @@ function checkGame() {
 
 gameSet();
 createCrystals();
-buttonMath();
+buttonMath($(this));
 checkGame();
