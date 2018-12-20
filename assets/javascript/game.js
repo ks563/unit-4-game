@@ -65,19 +65,14 @@ function checkGame() {
     if (addedNum === magicNum) {
         wins++;
         gameSet();
-    }
-}
-    else if{
-        (addedNum > magicNum) {
+    } else if(addedNum > magicNum) {
         losses++;
-    }
-}
-    else {
+        gameSet();
+    } else {
         continue;
     }
- 
-    gameSet();
 }
+
 
 gameSet();
 renderCrystals();
