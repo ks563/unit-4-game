@@ -14,6 +14,7 @@ function getRandomNumber() {
 function gameSet() {
     getRandomNumber();
     crystals = randomNumberCrystals();
+    $("#magic-number").text(magicNum);
     // console.log(crystalValue1);
 }
 
@@ -49,17 +50,15 @@ function createCrystals() {
     }   
 }
 
-// this function will append button presses to guessed letter on button click - but was retuning NaN
-$(".btn-group").click(function (event) {
-    addedNum += $(".btn-group").attr($(this).data());
-    $("#guessed-number").html(addedNum);
+// this function will append button presses to guessed letter on button click - but is retuning NaN
+function buttonMath(crystal) {
+    $(".btn-group").click(function (event) {
+        addedNum += crystals[crystal.attr($(this).data(points))];
+        $("#guessed-number").html(addedNum);
+        //console.log(addedNum);
+    }
+    )
 }
-)
-
-// console.log(addedNum);
-
-
-
 
 function checkGame() {
     if (addedNum === magicNum) {
@@ -70,7 +69,6 @@ function checkGame() {
         gameSet();
     } 
 }
-
 
 gameSet();
 createCrystals();
