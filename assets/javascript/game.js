@@ -55,10 +55,12 @@ function createCrystals() {
 }
 
 // worked with will on this - changed .attr() to .val() now not getting an error but value of the button is not adding to addedNum
+//tried declaring a new variable to store the addedNum plus the button val getting NaN
 function buttonMath(crystal) {
     $(".btn-group").click(function (event) {
-        addedNum = addedNum + parseInt($(this).val());
-        $("#guessed-number").html(addedNum);
+        var guessedVal= parseInt(addedNum) + parseInt($(this).val());
+        $("#guessed-number").text(guessedVal);
+        console.log(guessedVal);
         // console.log(addedNum); returns undefined
         // console.log("this is the data-name" + crystals[crystal.val()]);  // this returns an error and I don't know what the error means, it seems specified to the jquery
         // console.log($(this).val());
