@@ -32,12 +32,12 @@ function getRandomNumber() {
 //function sets game and assigns value to buttons and sets randon number
 function gameSet() {
     getRandomNumber();
-    // crystals = randomNumberCrystals();
+    // crystals = randomNumberCrystals(); don't need to assign this because moved object to variable
     $("#magic-number").text(magicNum);
     // console.log(crystalValue1);
 }
 
-// removed the object from the function and set it equal to the declared variable
+// removed the object from the function and set it equal to the declared variable 
 // function randomNumberCrystals() {
 //     return 
 //     };
@@ -49,14 +49,14 @@ function createCrystals() {
         var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[crystal].image);
         crystalButton.append(crystalImg);
         $(".btn-group").append(crystalButton);
-    console.log("looping");
+    // console.log("looping");
     }
 }
 
-// worked with will on this - changed .attr() to .val() 
+// worked with will on this - changed .attr() to .val() now not getting an error but value of the button is not adding to addedNum
 function buttonMath(crystal) {
     $(".btn-group").click(function (event) {
-        addedNum + parseInt($(this).val());
+        addedNum += $(this).val();
         $("#guessed-number").html(addedNum);
         // console.log(addedNum);
         // console.log("this is the data-name" + crystals[crystal.val()]);
