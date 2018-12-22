@@ -34,6 +34,7 @@ function gameSet() {
     getRandomNumber();
     // crystals = randomNumberCrystals(); don't need to assign this because moved object to variable
     $("#magic-number").text(magicNum);
+    $("#guessed-number").html(addedNum);
     // console.log(crystalValue1);
 }
 
@@ -56,14 +57,16 @@ function createCrystals() {
 // worked with will on this - changed .attr() to .val() now not getting an error but value of the button is not adding to addedNum
 function buttonMath(crystal) {
     $(".btn-group").click(function (event) {
-        addedNum += $(this).val();
+        addedNum = addedNum + parseInt($(this).val());
         $("#guessed-number").html(addedNum);
-        // console.log(addedNum);
-        // console.log("this is the data-name" + crystals[crystal.val()]);
+        // console.log(addedNum); returns undefined
+        // console.log("this is the data-name" + crystals[crystal.val()]);  // this returns an error and I don't know what the error means, it seems specified to the jquery
         // console.log($(this).val());
     }
     )
 }
+
+//buttons have values. have tried append method - just makes zeros appear in a row
 
 function checkGame() {
     if (addedNum === magicNum) {
