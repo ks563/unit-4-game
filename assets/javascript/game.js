@@ -21,7 +21,8 @@ var crystals = {
         image: "./assets/images/crystal4.png"
     }
 };
-var addedNum = 0; //this will hold the value of pressed button then be added too so we can append it to the div
+var addedNum = 0; 
+var guessedVal;
 
 function getRandomNumber() {
     magicNum = Math.floor(Math.random() * 121) + 19;
@@ -58,7 +59,7 @@ function createCrystals() {
 //tried declaring a new variable to store the addedNum plus the button val getting NaN
 function buttonMath(crystal) {
     $(".btn-group").click(function (event) {
-        var guessedVal= parseInt(addedNum) + parseInt($(this).val());
+        var guessedVal= addedNum + parseInt($(this).val());
         $("#guessed-number").text(guessedVal);
         console.log(guessedVal);
         // console.log(addedNum); returns undefined
@@ -71,10 +72,10 @@ function buttonMath(crystal) {
 //buttons have values. have tried append method - just makes zeros appear in a row
 
 function checkGame() {
-    if (addedNum === magicNum) {
+    if (guessedVal === magicNum) {
         wins++;
         gameSet();
-    } else if (addedNum > magicNum) {
+    } else if (guessedVal > magicNum) {
         losses++;
         gameSet();
     }
